@@ -1,3 +1,123 @@
+// import "./Shop keeper login.css"
+// import Button from 'react-bootstrap/Button';
+// import Form from 'react-bootstrap/Form';
+// import Nav from 'react-bootstrap/Nav';
+// import { useState } from "react";
+
+// const ShopKeeperLogin = () => {
+
+//     //----get shop keeper details in form---//
+//     const [ShopKeeperLoginDetails, setShopKeeperLoginDetails] = useState({
+//         EmailAddress: "",
+//         password: ""
+//     })
+
+//     // onchange function in input field------//
+
+//     const changeHandler = (e) => {
+//         setShopKeeperLoginDetails({ ...ShopKeeperLoginDetails, [e.target.name]: e.target.value })
+//         // console.log(ShopKeeperLoginDetails);
+//     }
+
+//     //  ------set alert >>> input box is empty----//
+//     const [alertEmail, setAlertEmail] = useState(false)
+//     const [alertPassword, setAlertPassword] = useState(false)
+
+//     //-----set valid alert >>> input value is not valid
+//     const [alertValidEmail, setAlertvalidEmail] = useState(false)
+//     const [alertValidPassword, setAlertValidPassword] = useState(false)
+
+
+//     //----submit button function-------// 
+//     const handleSubmit = (e) => {
+//         e.preventDefault();
+
+//         if (ShopKeeperLoginDetails.EmailAddress === "") {
+//             setAlertEmail(true)
+//             setAlertvalidEmail(false)
+//         }
+//         else {
+//             setAlertEmail(false)
+//             if (ShopKeeperLoginDetails.EmailAddress === "anithalkutty200@gmail.com") {
+//                 setAlertvalidEmail(false)
+//             }
+//             else {
+//                 setAlertvalidEmail(true)
+//             }
+
+//         }
+
+//         if (ShopKeeperLoginDetails.password === "") {
+//             setAlertPassword(true)
+//             setAlertValidPassword(false)
+//         }
+//         else {
+//             setAlertPassword(false)
+//             if (ShopKeeperLoginDetails.password === "kutty") {
+//                 setAlertValidPassword(false)
+//             }
+//             else {
+//                 setAlertValidPassword(true)
+//             }
+
+//         }
+
+
+//         if (ShopKeeperLoginDetails.EmailAddress === "anithalkutty200@gmail.com" && ShopKeeperLoginDetails.password === "kutty") {
+//             alert("login successfully!")
+
+//         }
+
+
+//     }
+
+//     return (<div>
+//         <Form style={{ backgroundColor: "white", width: "400px", height: "400px", fontFamily: "serif", margin: "auto", marginTop: "100px" }}>
+//             <div style={{ marginLeft: "190px" }}><i className="fa-solid fa-lock"></i></div>
+//             <h1 style={{ marginLeft: "50px", marginTop: "10px" }}>Shop keeper Login</h1>
+//             <Form.Group className="mb-3" controlId="formBasicEmail" style={{ marginLeft: "30px" }}>
+//                 <Form.Label><h5>Email address:</h5></Form.Label>
+//                 <Form.Control type="email" name="EmailAddress" onChange={changeHandler} placeholder="Email Address" style={{ width: "300px", height: "30px" }} />
+//                 {alertEmail && <Form.Text style={{ color: "red" }}>
+//                     *Please fill in this field.
+//                 </Form.Text>}
+//                 {alertValidEmail && <Form.Text style={{ color: "red" }}>
+//                     *enter valid Email address.
+//                 </Form.Text>}
+//             </Form.Group>
+
+//             <Form.Group className="mb-3" controlId="formBasicPassword" style={{ marginLeft: "30px" }}>
+//                 <Form.Label><h5>Password:</h5></Form.Label>
+//                 <Form.Control type="password" name="password" onChange={changeHandler} placeholder="Password" style={{ width: "300px", height: "30px" }} />
+//                 {alertPassword && <Form.Text style={{ color: "red" }}>
+//                     *Please fill in this field.
+//                 </Form.Text>}
+//                 {alertValidPassword && <Form.Text style={{ color: "red" }}>
+//                     *enter valid password.
+//                 </Form.Text>}
+//             </Form.Group>
+
+//             <Nav style={{ marginTop: "-20px", textDecorationLine: "underline" }} >
+//                 <Nav.Link href="/home" style={{ marginLeft: "210px" }}>forget password?</Nav.Link>
+//             </Nav>
+//             <div >
+
+//                 <Button variant="primary" type="button" onClick={handleSubmit} style={{ width: "100px", height: "40px", marginLeft: "140px" }}>
+//                     Login
+//                 </Button>
+//             </div>
+//             <Nav style={{ textDecorationLine: "underline" }}>
+//                 <Nav.Link href="/#" style={{ marginLeft: "20px" }} >back?</Nav.Link>
+//             </Nav>
+
+//         </Form>
+
+//     </div>
+
+//     )
+// }
+// export default ShopKeeperLogin
+
 
 // import style from "./user login.css"
 // import Button from 'react-bootstrap/Button';
@@ -62,14 +182,15 @@
 //     )
 // }
 // export default Login
-import "./user login.css"
+
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Dropdown from "react-bootstrap/Dropdown";
 import Modal from "react-bootstrap/Modal";
 import { useEffect, useState } from "react";
-const Login = () => {
+
+const ShopKeeperLogin = () => {
     // ------Get  email&pwd in input box -------//
     const [userLoginDetails, setUserLoginDetails] = useState({
         Email: "",
@@ -205,7 +326,7 @@ const Login = () => {
     };
 
     return (
-        <div className="body" >
+        <div >
             <div>
                 <Dropdown>
                     <Dropdown.Toggle
@@ -221,8 +342,8 @@ const Login = () => {
                         <i className="fa-solid fa-gear"></i>
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
-                        <Dropdown.Item href="#/action-1">Admin</Dropdown.Item>
-                        <Dropdown.Item href="#/action-2">show Room</Dropdown.Item>
+                        <Dropdown.Item href="#/action-1">User Login</Dropdown.Item>
+                        <Dropdown.Item href="#/action-2"> Login</Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>
             </div>
@@ -238,7 +359,7 @@ const Login = () => {
                     <div style={{ marginLeft: "190px" }}>
                         <i className="fa-solid fa-lock"></i>
                     </div>
-                    <h1 style={{ marginLeft: "140px" }}>Login</h1>
+                    <h3 style={{ marginLeft: "100px" }}>Shop Keeper Login</h3>
                     <Form.Group
                         className="mb-2"
                         controlId="formBasicEmail"
@@ -325,8 +446,8 @@ const Login = () => {
                         Login
                     </Button>
                     <Nav style={{ textDecorationLine: "underline" }}>
-                        <Nav.Link href="/#" style={{ marginLeft: "20px" }}>
-                            Create an account?
+                        <Nav.Link href="/#" style={{ color: "blue", marginLeft: "20px" }}>
+                            Back?
                         </Nav.Link>
                     </Nav>
                 </Form>
@@ -424,4 +545,4 @@ const Login = () => {
         </div>
     );
 };
-export default Login;
+export default ShopKeeperLogin;

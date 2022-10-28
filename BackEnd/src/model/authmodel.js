@@ -11,4 +11,4 @@ const Dream_Bikes = new mongoose.Schema({
     type: String
   }
 });
-module.exports = mongoose.model('signup', Dream_Bikes);
+module.exports = mongoose.model('User_Registration_datas', Dream_Bikes);

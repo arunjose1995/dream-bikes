@@ -9,6 +9,10 @@ const Dream_Bikes = new mongoose.Schema({
   },
   Password: {
     type: String
+  },
+  role: {
+    type: Number,
+    default: 0
   }
 });
 module.exports = mongoose.model('User_Registration_datas', Dream_Bikes);

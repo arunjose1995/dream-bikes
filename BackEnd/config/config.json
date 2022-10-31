@@ -1,5 +1,6 @@
 {
-    "port":55555,
-    "url": "mongodb://localhost/Dream_Bikes",
-    "SecretKey":"Dream_BIKEs-ForEvEr"
+  "port": 55555,
+  "url": "mongodb://localhost/Dream_Bikes",
+  "SecretKey": "Dream_BIKEs-ForEvEr",
+  "Roles":["user","admin"]
 }

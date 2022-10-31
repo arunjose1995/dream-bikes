@@ -12,13 +12,11 @@ const Registration = async (req, res) => {
     let data = await user_data.findOne({ Email: req.body.Email });
     if (data) return res.status(400).send('user data Already registered...');
     data = new user_data(({ Name, Email, Password } = req.body));
-    const salt = await bcrypt.genSalt(10);
-    data.Password = await bcrypt.hash(data.Password, salt);
+    data.Password = await bcrypt.hash(data.Password, 10);
     const Post_data = await data.save();
     console.log(Post_data);
-    const token = jwt.sign({ _id: data._id }, config.SecretKey);
+    const token = jwt.sign({ _id: data._id });
     req.header;
-    console.log(req.header);
     res.send(Post_data);
     logger.info('Successfully Registered');
   } catch (err) {
@@ -26,13 +24,13 @@ const Registration = async (req, res) => {
     logger.error(err);
   }
 };
-const login_user_Data = async (req, res) => {
+const login_user = async (req, res) => {
   try {
     let data = await user_data.findOne({ Email: req.body.Email });
     if (!data) return res.status(400).send('Invalid  email ');
     let validpassword = await bcrypt.compare(req.body.Password, data.Password);
     if (!validpassword) return res.status(400).send('Invalid  password');
-    const token = jwt.sign({ _id: data._id }, config.SecretKey);
+    const token = jwt.sign({ _id: data._id });
     res.send({ token: token, data: data });
     logger.info('Successfully login');
   } catch (err) {
@@ -52,8 +50,7 @@ const forget_password = async (req, res) => {
       data.Password
     );
     if (!validpassword) {
-      const salt = await bcrypt.genSalt(10);
-      const hash = await bcrypt.hash(req.body.Password, salt);
+      const hash = await bcrypt.hash(req.body.Password, 10);
       const forgot = await user_data.updateOne(
         { Email: req.body.Email },
         {
@@ -73,9 +70,25 @@ const forget_password = async (req, res) => {
     res.status(404).send('Somthing Wrong');
   }
 };
+
+const login_admin = async (req, res) => {
+  try {
+    let data = await user_data.findOne({ Email: req.body.Email });
+    if (!data) return res.status(400).send('Invalid  email ');
+    let validpassword = await bcrypt.compare(req.body.Password, data.Password);
+    if (!validpassword) return res.status(400).send('Invalid  password');
+    const token = jwt.sign({ _id: data._id }, config.SecretKey);
+    res.send({ token: token, data: data });
+    logger.info('Successfully login');
+  } catch (err) {
+    logger.error(err);
+  }
+};
+
 module.exports = {
   Registration,
-  login_user_Data,
+  login_user,
+  login_admin,
   user_Data,
   forget_password
 };

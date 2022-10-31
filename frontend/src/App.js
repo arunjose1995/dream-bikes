@@ -1,9 +1,10 @@
-
+import RoutingArea from "./components/Router/Routing";
+import "./App.css";
 
 function App() {
   return (
-    <div >
-    <p>anitha V  kuttty</p>
+    <div>
+      <RoutingArea />
     </div>
   );
 }

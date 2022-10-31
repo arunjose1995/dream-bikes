@@ -9,12 +9,7 @@ router.post(
   middelware.uservalidation,
   controller.Registration
 );
-router.post(
-  '/login',
-  auth.login,
-  middelware.uservalidation,
-  controller.login_user
-);
+router.post('/login', middelware.uservalidation, controller.login_user);
 router.post(
   '/admin',
   auth.admin,

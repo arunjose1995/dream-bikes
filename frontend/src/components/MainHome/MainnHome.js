@@ -4,7 +4,7 @@ import AdminLogin from "../Login/AdminLogin/AdminLogin";
 import ShopKeeperLogin from "../Login/ShopKeeperLogin/ShopKeeperLogin";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
-import Button from "@mui/material/Button";
+import Button from "react-bootstrap/Button";
 import { useState } from "react";
 import "./MainHome.css";
 const HomeMain = () => {

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Card, Col, Row } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import CloseButton from "react-bootstrap/CloseButton";
-import Button from "@mui/material/Button";
+import Button from "react-bootstrap/Button";
 
 import "./Registration.css";
 import { useNavigate } from "react-router-dom";
@@ -41,6 +41,7 @@ function Registration() {
   const [alertPassword, setAlertPassword] = useState(false);
   const [alertConfirmPassword, setAlertConfirmPassword] = useState(false);
   const [alertCaptcha, setAlertCaptcha] = useState(false);
+
   // ------set alert >>> input value is not valide-------//
   const [alertValideUserName, setAlertValideUserName] = useState(false);
   const [alertValideEmail, setAlertValideEmail] = useState(false);
@@ -58,8 +59,6 @@ function Registration() {
   const [passwordSuccess, setPasswordSuccess] = useState(false);
   const [confirmPasswordSuccess, setConfirmPasswordSuccess] = useState(false);
   const [captchaSuccess, setCaptchaSuccess] = useState(false);
-
-  
 
   useEffect(() => {
     // after all condition success store userdata in database-----------//
@@ -86,6 +85,7 @@ function Registration() {
     passwordSuccess,
     confirmPasswordSuccess,
     captchaSuccess,
+    navigate,
   ]);
   // ----submit button function------//s
   const handleSubmit = (e) => {

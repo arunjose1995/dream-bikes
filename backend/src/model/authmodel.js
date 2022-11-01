@@ -11,8 +11,8 @@ const Dream_Bikes = new mongoose.Schema({
     type: String
   },
   role: {
-    type: Number,
-    default: 0
+    type: String,
+    default: 'user'
   }
 });
 module.exports = mongoose.model('User_Registration_datas', Dream_Bikes);

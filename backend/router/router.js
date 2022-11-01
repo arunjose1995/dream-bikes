@@ -1,2 +1,8 @@
-const route1 = require('../src/router/authrouter');
-module.exports = route1;
+const authroute = require('../src/router/authrouter');
+const userroute = require('../src/router/userrouter');
+const adminroute = require('../src/router/adminrouter');
+module.exports = {
+  authroute,
+  userroute,
+  adminroute
+};

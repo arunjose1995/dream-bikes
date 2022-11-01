@@ -5,7 +5,7 @@ const uservalidation = async (req, res, next) => {
       UserName: Joi.string().min(3).max(15),
       Email: Joi.string().email().required(),
       Password: Joi.string().min(3).max(15).required(),
-      role: Joi.number()
+      role: Joi.string()
     });
     await schema.validateAsync(req.body);
     next();

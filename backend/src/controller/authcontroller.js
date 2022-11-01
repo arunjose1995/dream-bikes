@@ -77,7 +77,7 @@ const admin_Registrion = async (req, res) => {
     data.Password = await bcrypt.hash(data.Password, 10);
     const Post_data = await data.save();
     const token = jwt.sign({ _id: data._id }, config.SecretKey);
-    req.header = x - access - token;
+    req.header = token;
     res.send({ Post_data, token });
     logger.info('Successfully Registered');
   } catch (err) {
@@ -94,9 +94,35 @@ const login_admin = async (req, res) => {
       data.Password
     );
     if (!validpassword) return res.status(400).send('Invalid  password');
+    console.log(data.Email, data.Password, data.role);
 
-    res.send({ data: data });
-    logger.info('Successfully login');
+    if (data.role === 'admin') {
+      logger.info('admin logined Successfully ');
+      return res.send({ data: data });
+    } else {
+      return res.status(400).send('UnAutharaized');
+    }
+  } catch (err) {
+    logger.error(err);
+  }
+};
+const login_shopkeeper = async (req, res) => {
+  try {
+    const data = await user_data.findOne({ Email: req.body.Email });
+    if (!data) return res.status(400).send('Invalid  email ');
+    const validpassword = await bcrypt.compare(
+      req.body.Password,
+      data.Password
+    );
+    if (!validpassword) return res.status(400).send('Invalid  password');
+    console.log(data.Email, data.Password, data.role);
+
+    if (data.role === 'shopkeeper') {
+      logger.info('shopkeper logined Successfully ');
+      return res.send({ data: data });
+    } else {
+      return res.status(400).send('UnAutharaized');
+    }
   } catch (err) {
     logger.error(err);
   }
@@ -105,8 +131,8 @@ const login_admin = async (req, res) => {
 module.exports = {
   Registration,
   login_user,
-  admin_Registrion,
   login_admin,
+  login_shopkeeper,
   user_Data,
   forget_password
 };

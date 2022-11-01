@@ -7,4 +7,5 @@ router.post(
   middelware.form_validation,
   controller.user_form
 );
+router.get('/user/get/form', controller.user_form_data);
 module.exports = router;

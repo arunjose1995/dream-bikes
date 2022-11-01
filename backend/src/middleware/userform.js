@@ -9,6 +9,7 @@ const form_validation = async (req, res, next) => {
         .pattern(/^[0-9]+$/)
         .required(),
       Mail_id: Joi.string().email().required(),
+      Aadhar_Number: Joi.string().required(),
       Address: Joi.string().required(),
       Street_Address: Joi.string(),
       City: Joi.string().required(),

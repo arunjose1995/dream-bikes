@@ -26,7 +26,11 @@ const user_form = async (req, res) => {
     logger.error(err);
   }
 };
-
+const user_form_data = async (req, res) => {
+  const get_data = await user_data.find();
+  res.send(get_data);
+};
 module.exports = {
-  user_form
+  user_form,
+  user_form_data
 };

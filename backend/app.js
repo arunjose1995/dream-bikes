@@ -3,9 +3,12 @@ const mongoose = require('mongoose');
 const db = require('./config/config.json');
 const router = require('./router/router');
 const logger = require('./logger');
+const cors = require('cors');
 const app = express();
 app.use(express.json());
-app.use(router);
+app.use(router.route1);
+app.use(router.route2);
+app.use(cors({ origin: '*' }));
 mongoose
   .connect(db.url)
   .then(() => {

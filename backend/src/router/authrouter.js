@@ -11,6 +11,11 @@ router.post(
 );
 router.post('/login', middelware.uservalidation, controller.login_user);
 router.post(
+  '/adminregistration',
+  middelware.uservalidation,
+  controller.admin_Registrion
+);
+router.post(
   '/admin',
   auth.admin,
   middelware.uservalidation,

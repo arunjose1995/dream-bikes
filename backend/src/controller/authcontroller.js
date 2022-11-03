@@ -15,10 +15,24 @@ const Registration = async (req, res) => {
     data = new user_data(({ Name, Email, Password } = req.body));
     data.Password = await bcrypt.hash(data.Password, 10);
     const Post_data = await data.save();
-    res.send({ Post_data });
+    // const token = jwt.sign(
+    //   {
+    //     _id: data._id,
+    //     UserName: data.UserName,
+    //     Email: data.Email,
+    //     Password: data.Password
+    //   },
+    //   config.SecretKey,
+    //   {
+    //     expiresIn: 86400
+    //   }
+    // );
+    // req.header = token;
+    // res.status(200).send({ Post_data, token: token });
+    res.status(200).send({ message: 'succesfully Registred', data: Post_data });
     logger.info('Successfully Registered');
   } catch (err) {
-    console.log('wrong', err);
+    res.status(404).send({ message: err });
     logger.error(err);
   }
 };
@@ -28,15 +42,29 @@ const login_user = async (req, res) => {
     if (!data) return res.status(400).send('Invalid  email ');
     let validpassword = await bcrypt.compare(req.body.Password, data.Password);
     if (!validpassword) return res.status(400).send('Invalid  password');
-    res.send({ data: data });
+    const token = jwt.sign(
+      {
+        _id: data._id,
+        UserName: data.UserName,
+        Email: data.Email,
+        Password: data.Password
+      },
+      config.SecretKey,
+      {
+        expiresIn: 86400
+      }
+    );
+    res.status(201).send({ token: token, data: data });
+
     logger.info('Successfully login');
   } catch (err) {
     logger.error(err);
+    res.status(404).send({ message: err });
   }
 };
 const user_Data = async (req, res) => {
   const get_data = await user_data.find();
-  res.send(get_data);
+  res.status(200).send(get_data);
 };
 const forget_password = async (req, res) => {
   try {
@@ -57,7 +85,7 @@ const forget_password = async (req, res) => {
         }
       );
       logger.info('Resest the Password');
-      res.send(forgot);
+      res.status(200).send(forgot);
     } else {
       logger.warn('Invalid passord');
       return res.status(400).send('Invalid  password');
@@ -65,24 +93,6 @@ const forget_password = async (req, res) => {
   } catch (err) {
     logger.error(err);
     res.status(404).send('Somthing Wrong');
-  }
-};
-const admin_Registrion = async (req, res) => {
-  try {
-    let uName = await user_data.findOne({ UserName: req.body.UserName });
-    if (uName) return res.status(400).send('user Name Already registered....');
-    let data = await user_data.findOne({ Email: req.body.Email });
-    if (data) return res.status(400).send('user Email Already registered...');
-    data = new user_data(({ Name, Email, Password, role } = req.body));
-    data.Password = await bcrypt.hash(data.Password, 10);
-    const Post_data = await data.save();
-    const token = jwt.sign({ _id: data._id }, config.SecretKey);
-    req.header = token;
-    res.send({ Post_data, token });
-    logger.info('Successfully Registered');
-  } catch (err) {
-    console.log('wrong', err);
-    logger.error(err);
   }
 };
 const login_admin = async (req, res) => {
@@ -94,15 +104,15 @@ const login_admin = async (req, res) => {
       data.Password
     );
     if (!validpassword) return res.status(400).send('Invalid  password');
-    console.log(data.Email, data.Password, data.role);
 
     if (data.role === 'admin') {
       logger.info('admin logined Successfully ');
-      return res.send({ data: data });
+      return res.status(200).send({ data: data });
     } else {
       return res.status(400).send('UnAutharaized');
     }
   } catch (err) {
+    res.status(404).send({ message: err });
     logger.error(err);
   }
 };
@@ -119,11 +129,12 @@ const login_shopkeeper = async (req, res) => {
 
     if (data.role === 'shopkeeper') {
       logger.info('shopkeper logined Successfully ');
-      return res.send({ data: data });
+      return res.status(201).send({ data: data });
     } else {
       return res.status(400).send('UnAutharaized');
     }
   } catch (err) {
+    res.status(400).send({ message: err });
     logger.error(err);
   }
 };

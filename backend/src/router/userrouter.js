@@ -8,4 +8,7 @@ router.post(
   controller.user_form
 );
 router.get('/user/get/form', controller.user_form_data);
+router.get('/user/get/postdata', controller.admin_post_data);
+router.post('/user/addtocart', controller.addtocart);
+router.get('/user/addcart/data', controller.get_card_data);
 module.exports = router;

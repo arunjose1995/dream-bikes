@@ -1,0 +1,8 @@
+.first{
+    background-image: linear-gradient(
+        to left,
+        rgb(248, 7, 188),
+        rgb(144, 37, 245)
+      );
+
+}

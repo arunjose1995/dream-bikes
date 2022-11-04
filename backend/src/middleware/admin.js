@@ -5,7 +5,6 @@ const admin_validate = async (req, res, next) => {
       Bike_image: Joi.string(),
       Model_Name: Joi.string(),
       Model_Price: Joi.string(),
-      Key_specification: Joi.string(),
       Engine: Joi.string(),
       Power: Joi.string(),
       Torque: Joi.string(),
@@ -20,8 +19,7 @@ const admin_validate = async (req, res, next) => {
     await schema.validateAsync(req.body);
     next();
   } catch (error) {
-    res.send(error);
-    console.log('wrong', error);
+    res.status(404).send({ message: error });
   }
 };
 

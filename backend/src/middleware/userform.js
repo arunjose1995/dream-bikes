@@ -20,11 +20,12 @@ const form_validation = async (req, res, next) => {
     await schema.validateAsync(req.body);
     next();
   } catch (error) {
-    res.send(error);
-    console.log('wrong', error);
+    res.status(400).send({ message: error });
   }
 };
 
 module.exports = {
   form_validation
 };
+
+

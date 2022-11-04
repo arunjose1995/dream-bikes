@@ -11,8 +11,7 @@ const form_validation = async (req, res, next) => {
       Mail_id: Joi.string().email().required(),
       Aadhar_Number: Joi.string().required(),
       Address: Joi.string().required(),
-      Street_Address: Joi.string(),
-      City: Joi.string().required(),
+      Bikemodel: Joi.string().required(),
       District: Joi.string().required(),
       State: Joi.string().required(),
       Bookig_Date: Joi.date().optional().required()

@@ -33,10 +33,10 @@ const Dream_Bikes = new mongoose.Schema({
       Address: {
         type: String
       },
-      Street_Address: {
+      Gender: {
         type: String
       },
-      City: {
+      Bikemodel: {
         type: String
       },
       District: {

@@ -8,6 +8,7 @@ const {
   shopkeeperroute
 } = require('./router/router');
 const logger = require('./logger');
+const cors = require('cors');
 const app = express();
 app.use(express.json());
 app.use(authroute);

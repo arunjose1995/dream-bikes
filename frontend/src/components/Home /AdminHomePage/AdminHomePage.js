@@ -417,7 +417,7 @@ console.log(getDatabase.get_data);
         <Navbar.Brand className="ms-3">
           <Button onClick={handleSlideBar}>
             {" "}
-            <i className="fa-solid fa-house"></i>{" "}
+            <img src={require('../Userhomepage/bike.png')} alt='not found' style={{ width: "50px", height: "50px", borderRadius: "100px", backgroundColor: "chartreuse" }} className="col-1"></img>{" "}
           </Button>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -437,12 +437,12 @@ console.log(getDatabase.get_data);
           </Form>
           <Nav>
             <Nav.Link>
-              {" "}
-              <Button onClick={() => setLgShow(true)}>Add New Bike</Button>{" "}
+           
+              <Button onClick={() => setLgShow(true)}>Add New Bike</Button>
             </Nav.Link>
             <Nav.Link className="me-2">
               <Button>
-                {" "}
+              
                 <i className="fa-solid fa-gear"></i>
               </Button>
             </Nav.Link>
@@ -737,7 +737,7 @@ console.log(getDatabase.get_data);
 
       {/* Body Of content properties */}
       {getDatabase.length > 0 && (
-        <div className="row gap-3">
+        <div className="row gap-2">
           {getDatabase.map((data, index) => {
             return (
               <Card

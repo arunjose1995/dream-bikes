@@ -76,7 +76,7 @@ const UserLogin = () => {
           setAlertValideEmail(false)
           setAlertPassword(false)
           setAlertValidePassword(false)
-          navigater("/userHomePage")
+          navigater(`/userHomePage/${res.data.data._id}`)
         }
        
       }).catch(catch1=>{

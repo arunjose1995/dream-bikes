@@ -1,5 +1,5 @@
 import Table from 'react-bootstrap/Table';
-import "/home/anitha/dream-bikes/frontend/src/components/Home /ShopKeeperHomePage/ShopKeeperHomePage.css"
+// import "/home/anitha/dream-bikes/frontend/src/components/Home /ShopKeeperHomePage/ShopKeeperHomePage.css"
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Col from 'react-bootstrap/Col';
@@ -54,15 +54,15 @@ const ShopKeeperHomePage = () => {
 
     return (
         <>
-            <Navbar style={{ backgroundColor: "white" }} >
+            <Navbar style={{ backgroundColor: "black" }} >
                 <Nav >
                     <img src={require('../Userhomepage/bike.png')} alt='not found' style={{ width: "50px", height: "50px", borderRadius: "100px", backgroundColor: "chartreuse" }} className="col-1"></img>
-                    <h1 style={{ marginLeft: "450px" }}>Shop Keeper</h1>
+                    <h1 style={{ marginLeft: "450px" ,color:"white"}}>Shop Keeper</h1>
                 </Nav>
             </Navbar>
             <Row>
                 <Col xs={2} >
-                    <div variant="light" style={{ backgroundColor: "white", height: "500px" }} >fcgvbhj</div>
+                    <div variant="light" style={{ backgroundColor: "black", height: "500px" }} ></div>
                 </Col>
                 <Col>
                     <Row>

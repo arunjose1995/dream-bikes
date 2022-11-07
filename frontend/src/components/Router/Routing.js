@@ -4,21 +4,28 @@ import Registration from "../Registration/Registration"
 import UserHomePage from "../Home /Userhomepage/UserHomePage";
 import ShopKeeperHomePage from "../Home /ShopKeeperHomePage/ShopKeeperHomePage.js"
 import UserHomePageBuy from "../Home /Userhomepage/UserHomePageBuy.js"
-import AdminHomePage from "../Home /AdminHomePage/AdminHomePage";
+import AdminHomePage from "../Home /AdminHomePage/AdminHomePage"
+// import ContextData from '../Context/ContextCreate'
 
+import UserContext from "../Context/ContextCreate"; 
+import { useState } from "react";
 const RoutingArea = () => {
-
+    const [LoginId,setLoginId]=useState("")
     return (
-        <Router>
+        <UserContext.Provider value={[LoginId,setLoginId]}>   
+    
+     <Router>
             <Routes>
                 <Route exact path='/' element={<HomeMain />} />
                 <Route path='/registration' element={<Registration />} />
-                <Route path='/userHomePage' element={<UserHomePage />} />
+                <Route path='/userHomePage/:id' element={<UserHomePage />} />
                 <Route path='/ShopKeeperHomePage' element={<ShopKeeperHomePage />} />
-                <Route path='/userHomePageBuy' element={<UserHomePageBuy />}/>
+                <Route path='/userHomePageBuy/:id' element={<UserHomePageBuy />} />
                 <Route path='/AdminHomePage' element={<AdminHomePage />} />
             </Routes>
         </Router>
+        </UserContext.Provider>
+
     )
 
 }

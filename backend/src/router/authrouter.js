@@ -12,6 +12,7 @@ router.post(
 );
 router.post(
   '/login',
+  auth.login,
   middelware.uservalidation,
   controller.login_user
 );
@@ -24,5 +25,4 @@ router.post(
 router.get('/userdata', controller.user_Data);
 router.put('/forgotpassword', controller.forget_password);
 auth.login, (module.exports = router);
-
 

@@ -1,20 +1,17 @@
 const Joi = require('joi');
-const uservalidation = async (req, res, next) => {
+const shopkeeper_validrespose = async (req, res, next) => {
   try {
     const schema = Joi.object({
-      UserName: Joi.string().min(3).max(15),
-      Email: Joi.string().email().required(),
-      Password: Joi.string().required(),
-      role: Joi.string()
+      Orderstatus: Joi.string().required(),
+      DeliveryDate: Joi.date().required()
     });
     await schema.validateAsync(req.body);
     next();
   } catch (error) {
-
     res.status(500).send({ message: error });
   }
 };
 
 module.exports = {
-  uservalidation
+  shopkeeper_validrespose
 };

@@ -17,7 +17,6 @@ const user_form = async (req, res) => {
     Aadhar_Number,
     Gender,
     Address,
-    Street_Address,
     Bikemodel,
     District,
     State,
@@ -170,3 +169,4 @@ module.exports = {
   Remove_card_data,
   Myorders
 };
+

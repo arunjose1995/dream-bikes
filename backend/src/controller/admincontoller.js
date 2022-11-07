@@ -66,3 +66,4 @@ module.exports = {
   admin_updateData,
   admin_remove_Data
 };
+

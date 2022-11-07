@@ -4,12 +4,13 @@ const uservalidation = async (req, res, next) => {
     const schema = Joi.object({
       UserName: Joi.string().min(3).max(15),
       Email: Joi.string().email().required(),
-      Password: Joi.string().min(3).max(15).required(),
+      Password: Joi.string().required(),
       role: Joi.string()
     });
     await schema.validateAsync(req.body);
     next();
   } catch (error) {
+
     res.status(500).send({ message: error });
   }
 };

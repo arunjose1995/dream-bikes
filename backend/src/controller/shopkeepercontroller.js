@@ -15,19 +15,13 @@ const order_verify = async (req, res) => {
   }
 };
 const order_response = async (req, res) => {
-  const userId = '6363507be19306aa50f76fde';
-  const ProductId = '63637f9b8e54865cfb95ca7b';
-  const BookingId = '6363e6cc24ab2bf66d12d4bf';
-  const { Orderstatus, DeliveryDate } = req.body;
+  const { userId, ProductId, BookingId, Orderstatus, DeliveryDate } = req.body;
 
   const data = new shopkeeper({
     userId,
     ProductId,
     BookingId,
-    Orders: {
-      Orderstatus,
-      DeliveryDate
-    }
+    Orders: { Orderstatus, DeliveryDate }
   });
   const Post_data = await data.save();
   res.status(200).send({ Post_data });

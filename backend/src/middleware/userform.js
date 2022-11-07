@@ -10,6 +10,7 @@ const form_validation = async (req, res, next) => {
         .required(),
       Mail_id: Joi.string().email().required(),
       Aadhar_Number: Joi.string().required(),
+      Gender: Joi.string().required(),
       Address: Joi.string().required(),
       Bikemodel: Joi.string().required(),
       District: Joi.string().required(),
@@ -19,6 +20,7 @@ const form_validation = async (req, res, next) => {
     await schema.validateAsync(req.body);
     next();
   } catch (error) {
+    console.log(error);
     res.status(400).send({ message: error });
   }
 };

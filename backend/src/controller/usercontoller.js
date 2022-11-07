@@ -6,9 +6,7 @@ const shopkeeper = require('../model/shopkeepermodel');
 const logger = require('../../logger');
 
 const user_form = async (req, res) => {
-  // const { userId, productId } = req.body;
-  const userId = '6363507be19306aa50f76fde';
-  const productId = '6363ee667cf0ce89d3a0dc2f';
+  const { userId, productId } = req.body;
   const {
     Name,
     Date_of_Birth,
@@ -17,7 +15,6 @@ const user_form = async (req, res) => {
     Aadhar_Number,
     Gender,
     Address,
-    Street_Address,
     Bikemodel,
     District,
     State,
@@ -99,7 +96,6 @@ const addtocart = async (req, res) => {
 
     if (cart) {
       const productDetails = await admin_data.findById(productId);
-      // if (!productDetails) {
       let itemIndex = cart.products.findIndex((p) => p._id == productId);
       if (itemIndex > -1) {
         let productItem = cart.products[itemIndex];
@@ -117,14 +113,6 @@ const addtocart = async (req, res) => {
       });
       return res.status(201).send(newCart);
     }
-    // } else {
-    //   const productDetails = await admin_data.findById(productId);
-    //   const newCart = await Cart.create({
-    //     userId,
-    //     products: [productDetails]
-    //   });
-    //   return res.status(201).send(newCart);
-    // }
   } catch (err) {
     console.log(err);
     res.status(500).send('Something went wrong');
@@ -158,7 +146,7 @@ const Remove_card_data = async (req, res) => {
 };
 const Myorders = async (req, res) => {
   const posted_data = await shopkeeper.find({ userId: req.params.id });
-  res.status(201).send(posted_data);
+  res.status(200).send(posted_data);
 };
 module.exports = {
   user_form,

@@ -3,13 +3,12 @@ const mongoose = require('mongoose');
 const db = require('./config/config.json');
 const { authroute, userroute, adminroute } = require('./router/router');
 const logger = require('./logger');
-// const cors = require('cors');
 const app = express();
 app.use(express.json());
 app.use(authroute);
 app.use(userroute);
 app.use(adminroute);
-// app.use(cors({ origin: '*' }));
+
 mongoose
   .connect(db.url)
   .then(() => {

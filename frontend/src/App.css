@@ -1,0 +1,12 @@
+body{
+    background-image: linear-gradient(
+        to left,
+        rgb(248, 7, 188),
+        rgb(144, 37, 245)
+      );
+      /* background-image: url(https://i.ytimg.com/vi/m9OHLAIZGrg/hqdefault.jpg); */
+      /* background-image: url(https://images.hdqwalls.com/download/bikes-1920x1080.jpg); */
+      background-size: cover;
+      background-position: center;
+}
+

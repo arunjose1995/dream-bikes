@@ -14,6 +14,7 @@ app.use(express.json());
 app.use(authroute);
 app.use(userroute);
 app.use(adminroute);
+
 app.use(shopkeeperroute);
 app.use(cors({ origin: '*' }));
 mongoose

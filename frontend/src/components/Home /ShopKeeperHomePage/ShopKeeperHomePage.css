@@ -1,0 +1,35 @@
+body{
+    background-image: linear-gradient(
+        to left,
+        rgb(248, 7, 188),
+        rgb(144, 37, 245)
+      );
+   
+}
+
+.second{
+    width: 500px;
+    height: 500px;
+}
+.modalView{
+    background-image: linear-gradient(
+        to left,
+        rgb(248, 7, 188),
+        rgb(144, 37, 245)
+      );
+}
+.modalViewList{
+    background-image: linear-gradient(
+        to right,
+        rgb(248, 7, 188),
+        rgb(144, 37, 245)
+      );
+}
+.modalViewList1{
+    background-image: linear-gradient(
+        to right,
+        rgb(248, 7, 188),
+        rgb(144, 37, 245)
+      );
+}
+

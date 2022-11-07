@@ -1,5 +1,27 @@
+<<<<<<< HEAD
 info: Nov-05-2022 09:54:37: 	Server started and running on  ... 8080
 info: Nov-05-2022 09:58:44: 	Server started and running on  ... 8080
 info: Nov-05-2022 09:59:08: 	Server started and running on  ... 8080
 info: Nov-05-2022 09:59:18: 	Server started and running on  ... 8080
 info: Nov-05-2022 10:12:14: 	Server started and running on  ... 8080
+=======
+info: Nov-05-2022 06:13:02: 	Successfully Registered
+info: Nov-05-2022 06:13:49: 	Successfully Registered
+info: Nov-05-2022 06:14:29: 	Successfully Registered
+info: Nov-05-2022 10:10:53: 	Successfully login
+info: Nov-05-2022 10:11:31: 	admin logined Successfully 
+info: Nov-05-2022 10:11:53: 	Successfully login
+info: Nov-05-2022 10:13:21: 	Successfully login
+info: Nov-05-2022 10:16:20: 	admin logined Successfully 
+info: Nov-05-2022 10:17:25: 	Successfully login
+info: Nov-05-2022 14:34:06: 	Successfully Registered
+info: Nov-05-2022 14:34:27: 	Successfully login
+warn: Nov-05-2022 14:36:52: 	Invalid passord
+info: Nov-05-2022 14:38:26: 	Resest the Password
+info: Nov-05-2022 14:38:33: 	Successfully login
+info: Nov-05-2022 14:39:17: 	admin logined Successfully 
+info: Nov-05-2022 14:41:19: 	Successfully Form upload
+info: Nov-05-2022 14:41:51: 	Successfully Form upload
+info: Nov-05-2022 14:44:30: 	Successfully login
+info: Nov-05-2022 14:49:47: 	shopkeper logined Successfully 
+>>>>>>> afaf15f8c7640df535f5591907726b6aa64a909b

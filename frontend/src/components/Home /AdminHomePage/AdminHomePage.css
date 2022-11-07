@@ -1,0 +1,28 @@
+.Add-Bike-Body{
+  background-image: linear-gradient(
+ to left,
+ rgb(248, 7, 188),
+ rgb(144, 37, 245)
+);
+color: black;
+}
+.Add-Bike-Foot , .Add-Bike-Head{
+ background-image: linear-gradient(
+     to right,
+     rgb(248, 7, 188),
+     rgb(144, 37, 245)
+   );
+   color: black;
+}
+.search{
+/* background-image: linear-gradient(
+     to right,
+     rgb(248, 7, 188),
+     rgb(144, 37, 245)
+   );
+   color: black; */
+   background-color: aqua;
+}
+.body-content{
+background-color: yellow;
+}

@@ -38,9 +38,10 @@ const Registration = async (req, res) => {
 };
 const login_user = async (req, res) => {
   try {
-    let data = await user_data.findOne({ Email: req.body.Email });
+    const data = await user_data.findOne({ Email: req.body.Email });
     if (!data) return res.status(400).send('Invalid  email ');
-    let validpassword = await bcrypt.compare(req.body.Password, data.Password);
+    const validpassword = await bcrypt.compare(req.body.Password,
+      data.Password);
     if (!validpassword) return res.status(400).send('Invalid  password');
     const token = jwt.sign(
       {
@@ -54,7 +55,7 @@ const login_user = async (req, res) => {
         expiresIn: 86400
       }
     );
-    res.status(201).send({ token: token, data: data });
+    res.status(200).send({ token: token, data: data });
 
     logger.info('Successfully login');
   } catch (err) {
@@ -103,8 +104,8 @@ const login_admin = async (req, res) => {
       req.body.Password,
       data.Password
     );
-    if (!validpassword) return res.status(400).send('Invalid  password');
-
+    if (!validpassword) return res.status(404).send('Invalid  password');
+    
     if (data.role === 'admin') {
       logger.info('admin logined Successfully ');
       return res.status(200).send({ data: data });
@@ -129,7 +130,7 @@ const login_shopkeeper = async (req, res) => {
 
     if (data.role === 'shopkeeper') {
       logger.info('shopkeper logined Successfully ');
-      return res.status(201).send({ data: data });
+      return res.status(200).send({ data: data });
     } else {
       return res.status(400).send('UnAutharaized');
     }

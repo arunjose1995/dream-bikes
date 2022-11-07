@@ -10,8 +10,7 @@ const uservalidation = async (req, res, next) => {
     await schema.validateAsync(req.body);
     next();
   } catch (error) {
-    res.send(error);
-    console.log('wrong');
+    res.status(500).send({ message: error });
   }
 };
 

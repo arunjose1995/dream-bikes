@@ -8,9 +8,6 @@ const Dream_Bikes = new mongoose.Schema({
   Model_Price: {
     type: String
   },
-  Key_specification: {
-    type: String
-  },
   Engine: {
     type: String
   },

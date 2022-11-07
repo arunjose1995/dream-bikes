@@ -7,7 +7,6 @@ const admin_add = async (req, res) => {
         Bike_image,
         Model_Name,
         Model_Price,
-        Key_specification,
         Engine,
         Power,
         Torque,
@@ -21,16 +20,16 @@ const admin_add = async (req, res) => {
       } = req.body)
     );
     const Post_data = await data.save();
-    res.send({ Post_data });
+    res.status(201).send({ Post_data });
     logger.info('Successfully Form upload');
   } catch (err) {
-    console.log('wrong', err);
+    res.status(401).send({ message: err });
     logger.error(err);
   }
 };
 const admin_getdata = async (req, res) => {
   const get_data = await user_data.find();
-  res.send(get_data);
+  res.status(201).send({ get_data });
 };
 const admin_updateData = async (req, res) => {
   const put_data = await user_data.updateOne(
@@ -54,11 +53,11 @@ const admin_updateData = async (req, res) => {
       } = req.body)
     }
   );
-  res.send(put_data);
+  res.status(201).send(put_data);
 };
 const admin_remove_Data = async (req, res) => {
   const delete_Data = await user_data.findByIdAndDelete(req.params.id);
-  res.send(delete_Data);
+  res.status(200).send({ delete_Data });
 };
 
 module.exports = {
